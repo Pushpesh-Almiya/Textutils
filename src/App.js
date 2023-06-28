@@ -3,6 +3,7 @@ import './App.css';
 import Main from './components/Main';
 import Navbar from './components/Navbar';
 import Alert from './components/Alert';
+import Footer from './components/Footer';
 function App() {
   const [mode , setMode]= useState("light")
   const [alert , setAlert]=useState(null)
@@ -34,6 +35,7 @@ function App() {
     <Navbar title ="Textutils" mode={mode} toggleMode={toggleMode}/>
     <Alert alert={alert}/>
     <Main heading ="Textutils-Play with your text" showAlert={showAlert} mode={mode}/>
+    <Footer mode={mode}/>
     </>
   );
 }
