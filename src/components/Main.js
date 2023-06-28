@@ -7,21 +7,26 @@ export default function Main(props) {
   };
   const uppercase = () => {
     setText(text.toUpperCase());
+    props.showAlert("Converted to uppercase","primary")
   };
   const lowercase = () => {
     setText(text.toLowerCase());
+    props.showAlert("Converted to lowercase","success")
   };
   const clearText = () => {
     setText("");
+    props.showAlert("Cleared text","danger")
   };
   const copyText = () => {
     let enterText = document.getElementById('textarea')
     enterText.select();
     navigator.clipboard.writeText(text);
+    props.showAlert("copy to clipbord","warning")
   };
   const removeExtraSpaces =()=>{
     let newText = text.split(/[ ]+/);
     setText(newText.join(' '))
+    props.showAlert("Remove extra spaces","info")
   }
   return (
     <>
@@ -42,14 +47,14 @@ export default function Main(props) {
         <button className="btn btn-success m-2" onClick={lowercase}>
           Convert to lowercase
         </button>
-        <button className="btn btn-danger m-2" onClick={clearText}>
-          Clear Text
+        <button className="btn btn-info m-2" onClick={removeExtraSpaces}>
+          Remove Extra Spaces
         </button>
         <button className="btn btn-warning m-2" onClick={copyText}>
           Copy Text
         </button>
-        <button className="btn btn-info m-2" onClick={removeExtraSpaces}>
-          Remove Extra Spaces
+        <button className="btn btn-danger m-2" onClick={clearText}>
+          Clear Text
         </button>
       </div>
       <div className="container">
